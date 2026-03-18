@@ -12,17 +12,14 @@
     --text-main: #ffffff;
     --text-dim: #a0a0a0;
 }
-
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--dark-bg);
     color: var(--text-main);
     margin: 0;
     line-height: 1.6;
-    scroll-behavior: smooth;
 }
-
-/* --- NAVIGATION --- */
+/* NAVIGATION */
 nav {
     position: fixed;
     top: 0;
@@ -36,12 +33,18 @@ nav {
     z-index: 1000;
 }
 nav .logo { font-weight: 900; font-size: 1.2rem; color: var(--gold); }
-nav .menu { display: flex; gap: 25px; }
-nav .menu a { color: var(--gold); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; }
+nav .menu { display: flex; gap: 20px; }
+nav .menu a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
 nav .menu a:hover { color: #fff; }
 .menu-toggle { display: none; cursor: pointer; color: var(--gold); font-size: 1.5rem; }
-
-/* --- HEADER --- */
+/* HEADER */
 header {
     padding: 120px 20px 80px;
     text-align: center;
@@ -53,30 +56,23 @@ header .tagline { color: var(--gold); font-weight: 700; letter-spacing: 5px; tex
 header h1 { font-size: 4rem; margin: 0; letter-spacing: -2px; }
 header h1 span { color: var(--gold); }
 .cta-btn { background: var(--gold); color: #000; padding: 15px 35px; text-decoration: none; font-weight: 900; border-radius: 50px; display: inline-block; margin-top: 30px; text-transform: uppercase; }
-
-/* --- SECTIONS --- */
-.container { max-width: 1200px; margin: auto; padding: 60px 20px; }
+/* SECTIONS */
+.container { max-width: 1200px; margin: auto; padding: 60px 20px; display:none; }
+.container.active { display:block; }
 .section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; }
 .section-title span { color: var(--gold); }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
 .card { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid #222; transition: all 0.3s ease; }
 .card:hover { transform: translateY(-8px); border-color: var(--gold); }
-.client-grid { display: flex; justify-content: center; align-items: center; gap: 25px; flex-wrap: wrap; opacity: 0.8; }
-.client-name { font-size: 1.2rem; font-weight: 800; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1.5px; }
-.stats-bar { display: flex; justify-content: space-around; background: var(--gold); color: #000; padding: 25px; border-radius: 10px; margin-top: -50px; position: relative; z-index: 10; text-align: center; }
-.stat-item h2 { margin: 0; font-size: 2rem; }
-.stat-item p { margin: 0; font-weight: bold; text-transform: uppercase; font-size: 0.75rem; }
-
-/* --- INFRASTRUCTURE IMAGE --- */
+.client-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 10px; text-align:center; opacity: 0.8; }
+.client-name { font-size: 1rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+/* INFRASTRUCTURE */
 .infrastructure img { width: 100%; height: auto; border-radius: 12px; margin-top: 20px; }
-
-/* --- FOOTER --- */
-footer { text-align: center; padding: 40px; color: var(--text-dim); border-top: 1px solid #222; }
-
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
+/* FOOTER */
+footer { text-align: center; padding: 40px; color: var(--text-dim); border-top: 1px solid #222; margin-top:40px; }
+/* RESPONSIVE */
+@media (max-width: 768px){
     header h1 { font-size: 3rem; }
-    .grid { grid-template-columns: 1fr; }
     nav .menu { display: none; flex-direction: column; background: rgba(0,0,0,0.95); position: absolute; top: 60px; right: 0; width: 200px; padding: 20px; border-radius: 0 0 0 10px; }
     nav .menu.show { display: flex; }
     .menu-toggle { display: block; }
@@ -89,53 +85,72 @@ footer { text-align: center; padding: 40px; color: var(--text-dim); border-top: 
     <div class="logo">FRESHSTATS</div>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <div class="menu">
-        <a href="#home">Home</a>
-        <a href="#vision">Vision</a>
-        <a href="#clients">Clients</a>
-        <a href="#divisions">Divisions</a>
-        <a href="#infrastructure">Infrastructure</a>
-        <a href="#contact">Contact</a>
+        <a onclick="showSection('home')">Home</a>
+        <a onclick="showSection('vision')">Vision</a>
+        <a onclick="showSection('clients')">Clients</a>
+        <a onclick="showSection('divisions')">Divisions</a>
+        <a onclick="showSection('infrastructure')">Infrastructure</a>
+        <a onclick="showSection('contact')">Contact</a>
     </div>
 </nav>
 
-<header id="home">
-    <span class="tagline">Innovate &bull; Integrate &bull; Transform</span>
-    <h1>FRESH<span>STATS</span></h1>
-    <p>Your Trusted Partner in Retail & Hospitality Recruitment</p>
-    <a href="mailto:hr@freshstats.in" class="cta-btn">Partner With Us</a>
-</header>
-
-<div class="container" id="vision">
-    <h2 class="section-title">Our <span>Vision</span></h2>
-    <p>To be the premier catalyst for workforce transformation in Tamil Nadu, dedicated to creating technically proficient individuals who embody global standards of excellence. We envision a future where the gap between potential and industry requirement is bridged through our innovative 6-stage training model—from Need Identification to Post-Program Support—ensuring every individual we deploy is equipped with the precision and professional discipline required by world-class retail and hospitality sectors. By integrating cutting-edge technical modules and managerial excellence, we aim to transform the human capital landscape, delivering scalable, responsive, and high-impact staffing solutions for our global partners.</p>
+<!-- HOME -->
+<div class="container active" id="home">
+    <header>
+        <span class="tagline">Innovate &bull; Integrate &bull; Transform</span>
+        <h1>FRESH<span>STATS</span></h1>
+        <p>Your Trusted Partner in Retail & Hospitality Recruitment</p>
+        <a href="mailto:hr@freshstats.in" class="cta-btn">Partner With Us</a>
+    </header>
 </div>
 
+<!-- VISION -->
+<div class="container" id="vision">
+    <h2 class="section-title">Our <span>Vision</span></h2>
+    <p>To be the premier catalyst for workforce transformation in Tamil Nadu, creating technically proficient individuals who embody global standards. Using our innovative 6-stage training model—from Need Identification to Post-Program Support—we prepare every individual for world-class retail and hospitality roles.</p>
+</div>
+
+<!-- CLIENTS -->
 <div class="container" id="clients">
     <h2 class="section-title">Clients</h2>
     <div class="client-grid">
-        <div class="client-name">NIKE</div>
         <div class="client-name">ADIDAS</div>
-        <div class="client-name">STARBUCKS</div>
-        <div class="client-name">PUMA</div>
-        <div class="client-name">ZARA</div>
         <div class="client-name">H&M</div>
+        <div class="client-name">Levi's</div>
+        <div class="client-name">MAC</div>
+        <div class="client-name">Marks & Spencer</div>
+        <div class="client-name">Nykaa</div>
+        <div class="client-name">Nike</div>
+        <div class="client-name">Puma</div>
+        <div class="client-name">Saravana Stores</div>
+        <div class="client-name">Starbucks</div>
+        <div class="client-name">Tanishq</div>
+        <div class="client-name">The Body Shop</div>
+        <div class="client-name">Westside</div>
+        <div class="client-name">Zara</div>
     </div>
 </div>
 
+<!-- DIVISIONS -->
 <div class="container" id="divisions">
-    <h2 class="section-title">Our <span>Core Divisions</span></h2>
+    <h2 class="section-title">Our <span>Core Divisions & Key Offerings</span></h2>
     <div class="grid">
         <div class="card">
             <h3>B2B Staffing Solutions</h3>
-            <p>Permanent placements and workforce management for all industry levels.</p>
+            <p>Permanent placements and workforce management for world and foreign talent. We can quickly build local or remote teams to support customer needs, including engineers.</p>
         </div>
         <div class="card">
             <h3>B2E Training & Development</h3>
-            <p>6-stage training model for technical and soft skills excellence.</p>
+            <p>We utilize rigorous design processes, ISO 20700 & ISO 13485 quality standards, and full model-based systems engineering approach to ensure candidates meet global requirements. Full consultation support for connected car data, smart city, and big data solutions.</p>
+        </div>
+        <div class="card">
+            <h3>Retail & Hospitality Recruitment</h3>
+            <p>We provide skilled manpower to retail and hospitality roles, ensuring the right fit for client operations and customer service excellence.</p>
         </div>
     </div>
 </div>
 
+<!-- INFRASTRUCTURE -->
 <div class="container" id="infrastructure">
     <h2 class="section-title">Infrastructure</h2>
     <div class="infrastructure">
@@ -143,10 +158,12 @@ footer { text-align: center; padding: 40px; color: var(--text-dim); border-top: 
     </div>
 </div>
 
+<!-- CONTACT -->
 <div class="container" id="contact">
     <h2 class="section-title">Contact</h2>
-    <p>Email: <a href="mailto:hr@freshstats.in">hr@freshstats.in</a></p>
-    <p>Location: Chennai, Tamil Nadu, India</p>
+    <p>Email: <a href="mailto:hr@freshstats.in">hr@freshstats.in</a>, <a href="mailto:admin@freshstats.in">admin@freshstats.in</a></p>
+    <p>Phone: +91 8056218286</p>
+    <p>Address: DBS BUSINESS CENTRE, 31A, Cathedral Garden Rd, Badrikari, Tirumurthy Nagar, Nungambakkam, Chennai, Tamil Nadu 600034</p>
 </div>
 
 <footer>
@@ -156,6 +173,12 @@ footer { text-align: center; padding: 40px; color: var(--text-dim); border-top: 
 <script>
 function toggleMenu(){
     document.querySelector('.menu').classList.toggle('show');
+}
+
+function showSection(id){
+    document.querySelectorAll('.container').forEach(c => c.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0,0);
 }
 </script>
 
