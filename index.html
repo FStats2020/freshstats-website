@@ -53,7 +53,7 @@ nav .menu a:hover { color: #fff; }
 header {
     padding: 140px 20px 100px;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1556740764-3e4b9f27d80d?crop=entropy&q=80&w=1200');
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1591696331113-d2a1f0c2b83f?blur=20&fit=crop&w=1200'); /* blurred recruitment theme */
     background-size: cover;
     background-position: center;
 }
@@ -83,6 +83,8 @@ header h1 span { color: var(--gold); }
 /* CONTACT */
 .contact-info a { color: var(--contact-blue); text-decoration: none; font-weight: 700; }
 .contact-info a:hover { text-decoration: underline; }
+.contact-info p { display: flex; align-items: center; gap: 8px; margin: 5px 0; }
+.contact-info i { color: var(--gold); }
 
 /* FOOTER */
 footer { text-align:center; padding:40px 20px; color: var(--text-dim); border-top:1px solid #222; }
@@ -104,9 +106,9 @@ footer { text-align:center; padding:40px 20px; color: var(--text-dim); border-to
     <div class="menu">
         <a onclick="showSection('home')">Home</a>
         <a onclick="showSection('vision')">Vision</a>
-        <a onclick="showSection('clients')">Clients</a>
         <a onclick="showSection('divisions')">Divisions</a>
         <a onclick="showSection('programs')">Programs</a>
+        <a onclick="showSection('clients')">Clients</a>
         <a onclick="showSection('infrastructure')">Infrastructure</a>
         <a onclick="showSection('contact')">Contact</a>
     </div>
@@ -125,28 +127,8 @@ footer { text-align:center; padding:40px 20px; color: var(--text-dim); border-to
 <!-- VISION -->
 <div class="container" id="vision">
     <h2 class="section-title">Our <span>Vision</span></h2>
-    <p>To be the premier catalyst for workforce transformation in Tamil Nadu, creating technically proficient individuals who embody global standards. Using our innovative 6-stage training model—from Need Identification to Post-Program Support—we prepare every individual for world-class retail and hospitality roles. By integrating managerial excellence and technical modules, we aim to bridge the gap between talent and industry requirements.</p>
-</div>
-
-<!-- CLIENTS -->
-<div class="container" id="clients">
-    <h2 class="section-title">Clients</h2>
-    <div class="client-grid">
-        <div class="client-name">ADIDAS</div>
-        <div class="client-name">H&M</div>
-        <div class="client-name">Levi's</div>
-        <div class="client-name">MAC</div>
-        <div class="client-name">Marks & Spencer</div>
-        <div class="client-name">Nykaa</div>
-        <div class="client-name">Nike</div>
-        <div class="client-name">Puma</div>
-        <div class="client-name">Saravana Stores</div>
-        <div class="client-name">Starbucks</div>
-        <div class="client-name">Tanishq</div>
-        <div class="client-name">The Body Shop</div>
-        <div class="client-name">Westside</div>
-        <div class="client-name">Zara</div>
-    </div>
+    <p>To find the best fit for your business you need a trusted partner who understands your requirements and can translate these into an effective recruitment strategy. Freshstats specializes in recruitment, providing bespoke professional services while building strong, lasting relationships that drive real value.</p>
+    <p>Our success is based on understanding your business: your market position, unique selling points, values, and culture, ensuring personality fit and aligning hiring to your vision. Through our 6-stage training model—from Need Identification to Post-Program Support—we prepare technically proficient individuals ready for world-class retail and hospitality roles.</p>
 </div>
 
 <!-- DIVISIONS -->
@@ -204,6 +186,27 @@ footer { text-align:center; padding:40px 20px; color: var(--text-dim); border-to
     </ul>
 </div>
 
+<!-- CLIENTS -->
+<div class="container" id="clients">
+    <h2 class="section-title">Clients</h2>
+    <div class="client-grid">
+        <div class="client-name">ADIDAS</div>
+        <div class="client-name">H&M</div>
+        <div class="client-name">Levi's</div>
+        <div class="client-name">MAC</div>
+        <div class="client-name">Marks & Spencer</div>
+        <div class="client-name">Nykaa</div>
+        <div class="client-name">Nike</div>
+        <div class="client-name">Puma</div>
+        <div class="client-name">Saravana Stores</div>
+        <div class="client-name">Starbucks</div>
+        <div class="client-name">Tanishq</div>
+        <div class="client-name">The Body Shop</div>
+        <div class="client-name">Westside</div>
+        <div class="client-name">Zara</div>
+    </div>
+</div>
+
 <!-- INFRASTRUCTURE -->
 <div class="container" id="infrastructure">
     <h2 class="section-title">Infrastructure</h2>
@@ -216,9 +219,9 @@ footer { text-align:center; padding:40px 20px; color: var(--text-dim); border-to
 <div class="container" id="contact">
     <h2 class="section-title">Contact</h2>
     <div class="contact-info">
-        <p>Email: <a href="mailto:hr@freshstats.in">hr@freshstats.in</a>, <a href="mailto:admin@freshstats.in">admin@freshstats.in</a></p>
-        <p>Phone: <a href="tel:+918056218286">+91 8056218286</a></p>
-        <p>Address: DBS BUSINESS CENTRE, 31A, Cathedral Garden Rd, Badrikari, Tirumurthy Nagar, Nungambakkam, Chennai, Tamil Nadu 600034</p>
+        <p><i>📧</i> Email: <a href="mailto:hr@freshstats.in">hr@freshstats.in</a>, <a href="mailto:admin@freshstats.in">admin@freshstats.in</a></p>
+        <p><i>📞</i> Phone: <a href="tel:+918056218286">+91 8056218286</a></p>
+        <p><i>📍</i> Address: DBS BUSINESS CENTRE, 31A, Cathedral Garden Rd, Badrikari, Tirumurthy Nagar, Nungambakkam, Chennai, Tamil Nadu 600034</p>
     </div>
 </div>
 
@@ -235,11 +238,15 @@ function showSection(id){
     document.querySelectorAll('.container').forEach(c => c.classList.remove('active'));
     const section = document.getElementById(id);
     section.classList.add('active');
-    window.scrollTo({top:0, behavior:'smooth'});
 
-    // Animate cards and clients
-    section.querySelectorAll('.card, .client-name, .infrastructure img').forEach((el, i) => {
-        setTimeout(() => { el.classList.add('visible'); }, i*150);
+    // Scroll with navbar offset
+    const yOffset = -80;
+    const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({top: y, behavior:'smooth'});
+
+    // Animate cards, clients, infrastructure
+    section.querySelectorAll('.card, .client-name, .infrastructure img').forEach((el,i)=>{
+        setTimeout(()=>{ el.classList.add('visible'); }, i*150);
     });
 }
 </script>
