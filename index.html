@@ -14,21 +14,21 @@
 }
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    margin: 0;
-    line-height: 1.6;
+    margin:0;
+    line-height:1.6;
     background-color: var(--dark-bg);
     color: var(--text-main);
     scroll-behavior: smooth;
 }
 nav {
     position: fixed;
-    top: 0;
-    width: 100%;
+    top:0;
+    width:100%;
     background: rgba(11,11,11,0.95);
-    display: flex;
-    justify-content: center;
-    padding: 12px 0;
-    z-index: 100;
+    display:flex;
+    justify-content:center;
+    padding:12px 0;
+    z-index:100;
 }
 nav a {
     color: var(--text-main);
@@ -36,25 +36,25 @@ nav a {
     margin: 0 15px;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size:0.9rem;
     transition: color 0.3s;
 }
 nav a.active, nav a:hover { color: var(--gold); }
 
 header {
     padding: 140px 20px;
-    text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('infrastructure.jpg');
+    text-align:center;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('home_banner.jpg');
     background-size: cover;
     background-position: center;
     backdrop-filter: blur(2px);
 }
-.tagline { color: var(--gold); font-weight: 700; letter-spacing: 5px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 15px; display: block; }
-h1 { font-size: 4rem; margin: 0; letter-spacing: -2px; }
+.tagline { color: var(--gold); font-weight:700; letter-spacing:5px; text-transform:uppercase; font-size:0.85rem; margin-bottom:15px; display:block; }
+h1 { font-size:4rem; margin:0; letter-spacing:-2px; }
 h1 span { color: var(--gold); }
 .cta-btn { background: var(--gold); color:#000; padding:16px 40px; text-decoration:none; font-weight:900; border-radius:50px; display:inline-block; margin-top:30px; text-transform:uppercase; }
 
-.container { max-width: 1200px; margin:auto; padding:60px 20px; }
+.container { max-width:1200px; margin:auto; padding:60px 20px; }
 .section-title { text-align:center; font-size:2rem; margin-bottom:50px; }
 .section-title span { color: var(--gold); }
 .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:30px; }
@@ -77,6 +77,9 @@ section:not(#home) { padding-bottom:80px; }
 .contact-info { color:#fff; line-height:1.6; font-size:0.95rem; }
 .contact-info span { display:flex; align-items:center; margin-bottom:5px; }
 .contact-info span svg { margin-right:8px; fill: var(--gold); }
+
+ul { padding-left:20px; }
+li { margin-bottom:5px; }
 
 @media(max-width:768px){
     header { padding:100px 20px; }
@@ -119,7 +122,7 @@ section:not(#home) { padding-bottom:80px; }
 <section id="vision">
 <div class="container">
     <h2 class="section-title">Our <span>Vision</span></h2>
-    <p>To find the best fit for your business you need a trusted partner who understands your requirements and can translate these into an effective recruitment strategy. Freshstats are specialist in recruitment who provide a bespoke professional service and work hard to build strong, lasting relationships with our clients to drive real value for their business. Our success is based on understanding your business in terms of your position in the market, unique selling points, values, and working culture to match these to the skills of a candidate profile. We also ensure personality fit reflects your company’s culture. We envision a future where the gap between potential and industry requirements is bridged through our innovative 6-stage training model—from Need Identification to Post-Program Support—ensuring every individual we deploy is equipped with precision and professional discipline required by world-class retail and hospitality sectors. By integrating cutting-edge technical modules and managerial excellence, we aim to transform the human capital landscape, delivering scalable, responsive, and high-impact staffing solutions for global partners.</p>
+    <p>To find the best fit for your business you need a trusted partner who understands your requirements and can translate these into an effective recruitment strategy. Freshstats specializes in recruitment for retail and hospitality sectors, providing a bespoke professional service that builds strong, lasting relationships with clients to drive real business value. Our success is based on understanding your business position, unique selling points, values, and working culture to match these to the skills of candidates. Personality fit and alignment with company culture are prioritized. We envision bridging the gap between talent and industry requirements through our 6-stage training model—from Need Identification to Post-Program Support—ensuring every individual deployed is precise, professional, and industry-ready. By integrating cutting-edge technical modules and managerial excellence, we transform the human capital landscape, delivering scalable, responsive, and high-impact staffing solutions for global retail and hospitality partners.</p>
 </div>
 </section>
 
@@ -153,11 +156,15 @@ section:not(#home) { padding-bottom:80px; }
 <div class="grid">
     <div class="card">
         <h3>B2B Staffing</h3>
-        <p>We provide skilled manpower for retail and hospitality roles. Services include Permanent Placements, Workforce Management, and Consulting. We bridge the gap between talent and business requirements.</p>
+        <p>We provide skilled manpower for retail and hospitality roles, including permanent placements, workforce management, and consulting. Our solutions bridge the gap between talent and business requirements, ensuring efficient deployment in retail & hospitality operations.</p>
     </div>
     <div class="card">
         <h3>B2E Management</h3>
-        <p>Professional event management, corporate engagement, and training programs designed for performance and excellence in the retail sector.</p>
+        <p>Professional event management, corporate engagement, and training programs designed for performance and excellence in the retail and hospitality sectors.</p>
+    </div>
+    <div class="card">
+        <h3>Engineering & Tech Support</h3>
+        <p>Technical staffing, automation support, and consulting for engineering solutions including AutoCAD, Solidworks, CREO, Catia, UG — supporting retail facilities and operational requirements.</p>
     </div>
 </div>
 </div>
@@ -167,14 +174,71 @@ section:not(#home) { padding-bottom:80px; }
 <section id="programs">
 <div class="container">
 <h2 class="section-title">Our <span>Programs</span></h2>
-<p>We provide Soft Skill and Technical Training Programs tailored for retail and hospitality sectors:</p>
+
+<h3>Soft Skill Training Programmes</h3>
 <ul>
-<li>5S Human Mind Maintenance</li>
+<li>“5S” Human Mind Maintenance</li>
 <li>Workshop on Managerial Excellence (MAX)</li>
-<li>Industrial Leadership & Team Building</li>
-<li>Technical Training: 5S Principles, QC Tools, Lean, Kaizen, Poka-Yoke, QMS / EMS / OHSAS</li>
-<li>Customized Talent & Consulting for local and global workforce needs</li>
+<li>Industrial Leadership</li>
+<li>Effective Team Building</li>
+<li>GOAL Setting</li>
+<li>Planning and Organizing</li>
+<li>Presentation & Public Speaking</li>
+<li>Effective Communication</li>
+<li>Effective Negotiation</li>
+<li>Time Management</li>
+<li>Self-Development for Fresher (GET / DET)</li>
+<li>College to Corporate for Fresher</li>
 </ul>
+
+<h3>Technical Training Programmes</h3>
+<ul>
+<li>5S Principles and Practices</li>
+<li>Gemba 5S for shop floor / office employees</li>
+<li>Application of 7QC Tools</li>
+<li>Problem Solving through QC Story Methodology</li>
+<li>Problem Solving through 8D Methodology</li>
+<li>Management 7 Tools (New 7QC)</li>
+<li>Inventory Control through KANBAN</li>
+<li>Improving OLE through JH Pillar (TPM)</li>
+<li>Lean Principles and Tools</li>
+<li>Cost Reduction through Waste Elimination (MUDA, MURA, MURI)</li>
+<li>KAIZEN – Continuous Improvement</li>
+<li>Mistake Proofing through POKA-YOKE</li>
+<li>Awareness Training on QMS / EMS / OHSAS</li>
+</ul>
+
+<h3>Employer Services</h3>
+<ul>
+<li><strong>Permanent Placements:</strong> Access top-notch screened candidates, reducing time-to-hire for retail and hospitality roles.</li>
+<li><strong>Workforce Management:</strong> Full spectrum services including payroll, invoicing, assignment changes, and ongoing candidate relations.</li>
+<li><strong>Engineering Services:</strong> Technical support staff trained for AutoCAD, Solidworks, CREO, Catia, UG etc., supporting retail operations and projects.</li>
+</ul>
+
+<h3>Key Offerings</h3>
+<ul>
+<li>Customized Talent Solutions</li>
+<li>Quality Standards (ISO 20700 & ISO 13485)</li>
+<li>Systems Engineering</li>
+<li>Consulting Services for Retail & Hospitality sectors</li>
+</ul>
+
+<h3>Web Technology & Support</h3>
+<ul>
+<li>XML, Unix, Python, JavaScript, C, C++</li>
+<li>SQL, Oracle, MS Excel/Word/PPT</li>
+<li>AutoCAD 2D/3D, Solidworks, Creo, Catia, UG, Primavera</li>
+<li>Helpdesk & WAN monitoring, 24x7 SLA support</li>
+</ul>
+
+<h3>Assets & Capabilities</h3>
+<ul>
+<li>Monitors, Desktops, Core Switches, Printers, VC LED, Cameras, HP Servers etc.</li>
+<li>Entry Level, Middle Level, Supervisory, Behavioral & Soft Skill Programs</li>
+<li>Open House Calendar Programs</li>
+<li>Consulting on TPM, TQM, 5S for retail operations</li>
+</ul>
+
 </div>
 </section>
 
@@ -182,8 +246,8 @@ section:not(#home) { padding-bottom:80px; }
 <section id="infrastructure">
 <div class="container">
 <h2 class="section-title">Our <span>Infrastructure</span></h2>
-<p>Dedicated facilities to handle recruitment drives, training sessions, and technical services efficiently.</p>
-<img src="infrastructure.jpg" alt="Freshstats Infrastructure" class="infra-img">
+<p>Dedicated facilities to handle recruitment drives, training sessions, and technical services efficiently for retail and hospitality projects.</p>
+<img src="infra_building.jpg" alt="Freshstats Infrastructure" class="infra-img">
 </div>
 </section>
 
@@ -205,14 +269,13 @@ section:not(#home) { padding-bottom:80px; }
 </footer>
 
 <script>
-// Highlight active nav link on scroll
+// Smooth scroll & active nav
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('nav a');
-
 window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
-        const sectionTop = section.offsetTop - 70;
+        const sectionTop = section.offsetTop - 80;
         if(scrollY >= sectionTop) current = section.getAttribute('id');
     });
     navLinks.forEach(link => link.classList.remove('active'));
