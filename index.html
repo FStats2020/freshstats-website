@@ -11,6 +11,8 @@
     --card-bg: #161616;
     --text-main: #ffffff;
     --text-dim: #a0a0a0;
+    --contact-blue: #1E90FF;
+    --transition-time: 1s;
 }
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -18,21 +20,23 @@ body {
     color: var(--text-main);
     margin: 0;
     line-height: 1.6;
+    scroll-behavior: smooth;
 }
+
 /* NAVIGATION */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.9);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 15px 25px;
     z-index: 1000;
 }
-nav .logo { font-weight: 900; font-size: 1.2rem; color: var(--gold); }
+nav .logo { font-weight: 900; font-size: 1.3rem; color: var(--gold); }
 nav .menu { display: flex; gap: 20px; }
 nav .menu a {
     color: var(--gold);
@@ -44,36 +48,49 @@ nav .menu a {
 }
 nav .menu a:hover { color: #fff; }
 .menu-toggle { display: none; cursor: pointer; color: var(--gold); font-size: 1.5rem; }
+
 /* HEADER */
 header {
-    padding: 120px 20px 80px;
+    padding: 140px 20px 100px;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200');
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1556740764-3e4b9f27d80d?crop=entropy&q=80&w=1200');
     background-size: cover;
     background-position: center;
 }
 header .tagline { color: var(--gold); font-weight: 700; letter-spacing: 5px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 15px; display: block; }
 header h1 { font-size: 4rem; margin: 0; letter-spacing: -2px; }
 header h1 span { color: var(--gold); }
-.cta-btn { background: var(--gold); color: #000; padding: 15px 35px; text-decoration: none; font-weight: 900; border-radius: 50px; display: inline-block; margin-top: 30px; text-transform: uppercase; }
+.cta-btn { background: var(--gold); color: #000; padding: 15px 35px; text-decoration: none; font-weight: 900; border-radius: 50px; display: inline-block; margin-top: 30px; text-transform: uppercase; transition: transform 0.3s ease; }
+.cta-btn:hover { transform: translateY(-5px); }
+
 /* SECTIONS */
-.container { max-width: 1200px; margin: auto; padding: 60px 20px; display:none; }
-.container.active { display:block; }
+.container { max-width: 1200px; margin: auto; padding: 60px 25px; display:none; opacity:0; transform: translateY(40px); transition: all var(--transition-time) ease; }
+.container.active { display:block; opacity:1; transform: translateY(0); }
 .section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; }
 .section-title span { color: var(--gold); }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-.card { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid #222; transition: all 0.3s ease; }
+.card { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid #222; transition: all 0.3s ease; opacity:0; transform: translateY(30px); }
+.card.visible { opacity:1; transform: translateY(0); }
 .card:hover { transform: translateY(-8px); border-color: var(--gold); }
-.client-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 10px; text-align:center; opacity: 0.8; }
-.client-name { font-size: 1rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+.client-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 10px; text-align:center; opacity: 0.9; }
+.client-name { font-size: 1rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; opacity:0; transform: translateY(20px); transition: all 0.8s ease; }
+.client-name.visible { opacity:1; transform: translateY(0); }
+
 /* INFRASTRUCTURE */
-.infrastructure img { width: 100%; height: auto; border-radius: 12px; margin-top: 20px; }
+.infrastructure img { width: 100%; height: auto; border-radius: 12px; margin-top: 20px; opacity:0; transform: translateY(30px); transition: all 1s ease; }
+.infrastructure img.visible { opacity:1; transform: translateY(0); }
+
+/* CONTACT */
+.contact-info a { color: var(--contact-blue); text-decoration: none; font-weight: 700; }
+.contact-info a:hover { text-decoration: underline; }
+
 /* FOOTER */
-footer { text-align: center; padding: 40px; color: var(--text-dim); border-top: 1px solid #222; margin-top:40px; }
+footer { text-align:center; padding:40px 20px; color: var(--text-dim); border-top:1px solid #222; }
+
 /* RESPONSIVE */
 @media (max-width: 768px){
     header h1 { font-size: 3rem; }
-    nav .menu { display: none; flex-direction: column; background: rgba(0,0,0,0.95); position: absolute; top: 60px; right: 0; width: 200px; padding: 20px; border-radius: 0 0 0 10px; }
+    nav .menu { display: none; flex-direction: column; background: rgba(0,0,0,0.95); position: absolute; top: 60px; right: 0; width: 220px; padding: 20px; border-radius: 0 0 0 10px; }
     nav .menu.show { display: flex; }
     .menu-toggle { display: block; }
 }
@@ -89,6 +106,7 @@ footer { text-align: center; padding: 40px; color: var(--text-dim); border-top: 
         <a onclick="showSection('vision')">Vision</a>
         <a onclick="showSection('clients')">Clients</a>
         <a onclick="showSection('divisions')">Divisions</a>
+        <a onclick="showSection('programs')">Programs</a>
         <a onclick="showSection('infrastructure')">Infrastructure</a>
         <a onclick="showSection('contact')">Contact</a>
     </div>
@@ -107,7 +125,7 @@ footer { text-align: center; padding: 40px; color: var(--text-dim); border-top: 
 <!-- VISION -->
 <div class="container" id="vision">
     <h2 class="section-title">Our <span>Vision</span></h2>
-    <p>To be the premier catalyst for workforce transformation in Tamil Nadu, creating technically proficient individuals who embody global standards. Using our innovative 6-stage training model—from Need Identification to Post-Program Support—we prepare every individual for world-class retail and hospitality roles.</p>
+    <p>To be the premier catalyst for workforce transformation in Tamil Nadu, creating technically proficient individuals who embody global standards. Using our innovative 6-stage training model—from Need Identification to Post-Program Support—we prepare every individual for world-class retail and hospitality roles. By integrating managerial excellence and technical modules, we aim to bridge the gap between talent and industry requirements.</p>
 </div>
 
 <!-- CLIENTS -->
@@ -133,21 +151,57 @@ footer { text-align: center; padding: 40px; color: var(--text-dim); border-top: 
 
 <!-- DIVISIONS -->
 <div class="container" id="divisions">
-    <h2 class="section-title">Our <span>Core Divisions & Key Offerings</span></h2>
+    <h2 class="section-title">Our <span>Divisions & Key Offerings</span></h2>
     <div class="grid">
         <div class="card">
             <h3>B2B Staffing Solutions</h3>
-            <p>Permanent placements and workforce management for world and foreign talent. We can quickly build local or remote teams to support customer needs, including engineers.</p>
+            <p>Permanent placements and workforce management for world and foreign talent. Quickly build local or remote teams to support customer needs, including engineers.</p>
         </div>
         <div class="card">
             <h3>B2E Training & Development</h3>
-            <p>We utilize rigorous design processes, ISO 20700 & ISO 13485 quality standards, and full model-based systems engineering approach to ensure candidates meet global requirements. Full consultation support for connected car data, smart city, and big data solutions.</p>
+            <p>Using ISO standards & full model-based systems engineering, we ensure candidates meet global requirements. Consulting for connected car data, smart city solutions, and big data analytics.</p>
         </div>
         <div class="card">
             <h3>Retail & Hospitality Recruitment</h3>
-            <p>We provide skilled manpower to retail and hospitality roles, ensuring the right fit for client operations and customer service excellence.</p>
+            <p>Skilled manpower for retail and hospitality roles ensuring client operations and service excellence. From shop floor to management, we supply the right talent efficiently.</p>
         </div>
     </div>
+</div>
+
+<!-- PROGRAMS -->
+<div class="container" id="programs">
+    <h2 class="section-title">Training & Programs</h2>
+    <h3>Soft Skill Training Programs</h3>
+    <ul>
+        <li>“5S” Human Mind Maintenance</li>
+        <li>Workshop on Managerial Excellence (MAX)</li>
+        <li>Industrial Leadership</li>
+        <li>Effective Team Building</li>
+        <li>GOAL Setting</li>
+        <li>Planning and Organizing</li>
+        <li>Presentation & Public Speaking</li>
+        <li>Effective Communication</li>
+        <li>Effective Negotiation</li>
+        <li>Time Management</li>
+        <li>Self-Development for Fresher (GET / DET)</li>
+        <li>College to Corporate for Fresher</li>
+    </ul>
+    <h3>Technical Training Programs</h3>
+    <ul>
+        <li>5S Principles and Practices</li>
+        <li>Gemba 5S for shop floor / office employees</li>
+        <li>7 QC Tools application</li>
+        <li>Problem Solving - QC Story</li>
+        <li>Problem Solving - 8D Methodology</li>
+        <li>Management 7 Tools (New 7QC)</li>
+        <li>Inventory Control - KANBAN</li>
+        <li>OLE Improvement - JH Pillar (TPM)</li>
+        <li>Lean Principles and Tools</li>
+        <li>Cost Reduction (MUDA, MURA, MURI)</li>
+        <li>KAIZEN – Continuous Improvement</li>
+        <li>Mistake Proofing (POKA-YOKE)</li>
+        <li>Awareness Training on QMS / EMS / OHSAS</li>
+    </ul>
 </div>
 
 <!-- INFRASTRUCTURE -->
@@ -161,9 +215,11 @@ footer { text-align: center; padding: 40px; color: var(--text-dim); border-top: 
 <!-- CONTACT -->
 <div class="container" id="contact">
     <h2 class="section-title">Contact</h2>
-    <p>Email: <a href="mailto:hr@freshstats.in">hr@freshstats.in</a>, <a href="mailto:admin@freshstats.in">admin@freshstats.in</a></p>
-    <p>Phone: +91 8056218286</p>
-    <p>Address: DBS BUSINESS CENTRE, 31A, Cathedral Garden Rd, Badrikari, Tirumurthy Nagar, Nungambakkam, Chennai, Tamil Nadu 600034</p>
+    <div class="contact-info">
+        <p>Email: <a href="mailto:hr@freshstats.in">hr@freshstats.in</a>, <a href="mailto:admin@freshstats.in">admin@freshstats.in</a></p>
+        <p>Phone: <a href="tel:+918056218286">+91 8056218286</a></p>
+        <p>Address: DBS BUSINESS CENTRE, 31A, Cathedral Garden Rd, Badrikari, Tirumurthy Nagar, Nungambakkam, Chennai, Tamil Nadu 600034</p>
+    </div>
 </div>
 
 <footer>
@@ -177,10 +233,15 @@ function toggleMenu(){
 
 function showSection(id){
     document.querySelectorAll('.container').forEach(c => c.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    window.scrollTo(0,0);
+    const section = document.getElementById(id);
+    section.classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+
+    // Animate cards and clients
+    section.querySelectorAll('.card, .client-name, .infrastructure img').forEach((el, i) => {
+        setTimeout(() => { el.classList.add('visible'); }, i*150);
+    });
 }
 </script>
-
 </body>
 </html>
